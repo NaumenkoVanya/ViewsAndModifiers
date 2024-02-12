@@ -29,31 +29,36 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            
-            VStack(spacing: 10) {
-                CapsuleText(text: "Ivan GOOD First")
-                    .foregroundStyle(.yellow)
-                CapsuleText(text: "Ivan GOOD Second")
-                    .foregroundStyle(.green)
-                    
+            Text("Ivan The go work")
+                .modifier(Title())
+            Button("Ivan The go work") {
+                //
             }
+            .modifier(Title())
+//            VStack(spacing: 10) {
+//                CapsuleText(text: "Ivan GOOD First")
+//                    .foregroundStyle(.yellow)
+//                CapsuleText(text: "Ivan GOOD Second")
+//                    .foregroundStyle(.green)
+//                    
+//            }
             
-            VStack(spacing: 10) {
-                Text("Ivan Developer First")
-                    .font(.largeTitle)
-                    .padding()
-                    .foregroundStyle(.white)
-                    .background(.blue)
-                    .clipShape(.capsule)
-                Text("Ivan Developer Second")
-                    .font(.largeTitle)
-                    .padding()
-                    .foregroundStyle(.white)
-                    .background(.blue)
-                    .clipShape(.capsule)
-                
-                
-            }
+//            VStack(spacing: 10) {
+//                Text("Ivan Developer First")
+//                    .font(.largeTitle)
+//                    .padding()
+//                    .foregroundStyle(.white)
+//                    .background(.blue)
+//                    .clipShape(.capsule)
+//                Text("Ivan Developer Second")
+//                    .font(.largeTitle)
+//                    .padding()
+//                    .foregroundStyle(.white)
+//                    .background(.blue)
+//                    .clipShape(.capsule)
+//                
+//                
+//            }
             
             //
             //            VStack {
@@ -106,21 +111,39 @@ struct ContentView: View {
                     .background(.mint)
         }
     }
+
 extension ContentView {
     
-    struct CapsuleText: View {
-        var text: String
-        
-        var body: some View {
-            Text(text)
+    struct Title: ViewModifier {
+        func body(content: Content) -> some View {
+            content
                 .font(.largeTitle)
+                .foregroundStyle(.white)
                 .padding()
-//                .foregroundStyle(.white)
                 .background(.blue)
-                .clipShape(.capsule)
+                .clipShape(.rect(cornerRadius: 10))
         }
     }
+    
+    
+//    struct CapsuleText: View {
+//        var text: String
+//        
+//        var body: some View {
+//            Text(text)
+//                .font(.largeTitle)
+//                .padding()
+//                .foregroundStyle(.white)
+//                .background(.blue)
+//                .clipShape(.capsule)
+//        }
+//        
+//    }
+    
 }
+
+
+
 #Preview {
     ContentView()
 }
