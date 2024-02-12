@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     
+    
 //    @State private var useRadText = false
 //    @State private var useRadFrameColor = false
 //    
@@ -35,6 +36,10 @@ struct ContentView: View {
                 //
             }
             .modifier(Title())
+            
+            Color.blue
+                .frame(width: 300, height: 200)
+                .watermarked(with: "Hacking with Swift")
 //            VStack(spacing: 10) {
 //                CapsuleText(text: "Ivan GOOD First")
 //                    .foregroundStyle(.yellow)
@@ -111,6 +116,29 @@ struct ContentView: View {
                     .background(.mint)
         }
     }
+
+extension View {
+    func watermarked(with text: String) -> some View {
+        modifier(Watermark(text: text))
+    }
+}
+
+struct Watermark: ViewModifier {
+    var text: String
+
+    func body(content: Content) -> some View {
+        ZStack(alignment: .bottomTrailing) {
+            content
+            Text(text)
+                .font(.caption)
+                .foregroundStyle(.white)
+                .padding(5)
+                .background(.black)
+                
+        }
+    }
+}
+
 
 extension ContentView {
     
