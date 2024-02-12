@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var useRadText = false
+    @State private var useRadFrameColor = false
     var body: some View {
         VStack {
+            Button("ivan Naumenko") {
+                useRadText.toggle()
+                useRadFrameColor.toggle()
+            }
+            .foregroundStyle(useRadText ? .blue : .black)
+            .background(useRadFrameColor ? .brown : .clear)
             Button("Ivan Developer") {
                 print(type(of: self.body))
             }
